@@ -1,0 +1,24 @@
+def merge_sorted(a: list[int], b: list[int]) -> list[int]:
+    """
+    Merge two sorted lists into a single sorted list.
+    
+    :param a: First sorted list of integers.
+    :param b: Second sorted list of integers.
+    :return: A new sorted list containing all elements from both lists.
+    """
+    merged = []
+    i, j = 0, 0
+
+    while i < len(a) and j < len(b):
+        if a[i] < b[j]:
+            merged.append(a[i])
+            i += 1
+        else:
+            merged.append(b[j])
+            j += 1
+
+    # Append remaining elements from either list
+    merged.extend(a[i:])
+    merged.extend(b[j:])
+
+    return merged
